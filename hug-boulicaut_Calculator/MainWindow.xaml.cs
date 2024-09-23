@@ -25,16 +25,18 @@ namespace hug_boulicaut_Calculator
         {
             InitializeComponent();
 
+     
+
         }
 
-        double first_no = 0;
+
+        double first_no = 0; //declaration des variables
         double second_no = 0;
         double result = 0;
         char operation;
 
- 
-        
-        private void BTN_1_Click(object sender, RoutedEventArgs e)
+
+        private void BTN_1_Click(object sender, RoutedEventArgs e) //declaration de chaque bouton
         {
             Display("1");
         }
@@ -112,6 +114,7 @@ namespace hug_boulicaut_Calculator
         private void BTN_LOG_Click(object sender, RoutedEventArgs e)
         {
             first_no = double.Parse(TB_Display.Text);
+            //calculer sans passer par le '='
             result = Math.Log(first_no);
             TB_Display.Text = result.ToString();
         }
@@ -143,7 +146,7 @@ namespace hug_boulicaut_Calculator
             TB_Display.Text = "0";
         }
 
-        public void Display(string num)
+        public void Display(string num)//fonction pour afficher/stocker/calculé les nombres
         {
             if (TB_Display.Text == "0")
             {
