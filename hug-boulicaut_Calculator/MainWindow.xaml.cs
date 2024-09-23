@@ -27,11 +27,13 @@ namespace hug_boulicaut_Calculator
 
         }
 
-        int first_no = 0;
-        int second_no = 0;
-        int result = 0;
+        double first_no = 0;
+        double second_no = 0;
+        double result = 0;
         char operation;
 
+ 
+        
         private void BTN_1_Click(object sender, RoutedEventArgs e)
         {
             Display("1");
@@ -107,6 +109,31 @@ namespace hug_boulicaut_Calculator
         {
             Display("/");
         }
+        private void BTN_LOG_Click(object sender, RoutedEventArgs e)
+        {
+            first_no = double.Parse(TB_Display.Text);
+            result = Math.Log(first_no);
+            TB_Display.Text = result.ToString();
+        }
+        private void BTN_SKRT_Click(object sender, RoutedEventArgs e)
+        {
+            first_no = double.Parse(TB_Display.Text);
+            result = Math.Sqrt(first_no);
+            TB_Display.Text = result.ToString();
+        }
+        private void BTN_COS_Click(object sender, RoutedEventArgs e)
+        {
+            first_no = double.Parse(TB_Display.Text);
+            result = Math.Cos(first_no);
+            TB_Display.Text = result.ToString();
+        }
+
+        private void BTN_SIN_Click(object sender, RoutedEventArgs e)
+        {
+            first_no = double.Parse(TB_Display.Text);
+            result = Math.Sin(first_no);
+            TB_Display.Text = result.ToString();
+        }
 
         private void BTN_CLR_Click(object sender, RoutedEventArgs e)
         {
@@ -122,14 +149,14 @@ namespace hug_boulicaut_Calculator
             {
                 TB_Display.Text = num;
             }
-            else if (num == "+" || num == "/" || num == "-" || num == "x") {
-                first_no = int.Parse(TB_Display.Text);
+            else if (num == "+" || num == "/" || num == "-" || num == "x" ) {
+                first_no = double.Parse(TB_Display.Text);
                 TB_Display.Text = "0";
                 operation = char.Parse(num);
             }
             else if ( num == "=")
             {
-                second_no = int.Parse(TB_Display.Text);
+                second_no = double.Parse(TB_Display.Text);
                 switch (operation)
                 {
                     case '+':
@@ -151,8 +178,8 @@ namespace hug_boulicaut_Calculator
                         result = first_no / second_no;
                         TB_Display.Text = result.ToString();
                         break;
+                   
                 }
-                
             }
             else
             {
